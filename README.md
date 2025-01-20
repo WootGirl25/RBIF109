@@ -1,2 +1,2 @@
 # RBIF109
-Brandeis 3rd session
+Sequence Analysis - Brandeis 3rd session
