@@ -2,26 +2,24 @@ Once local repository is initialized on home computer (if not skip to bottom):
 1. Pull from GitHub & edit from home:
    In terminal:
    cd ~/Documents/RBIF109/Notebooks    #Or wherever git repo & notebooks are stored from setup instructions
-   
    git pull origin main
 
    jupyter lab       #opens jupyter
-   
    #save on jupyter browser
 
    ctrl c #terminates jupyter
-3. Push to github
+2. Push to github
    #makesure in same directory
    git add Assignment1.ipynb     #or "git add ." if you want to push everything in the folder
    git commit -m "add comment"
    git push origin main
 
-4. To access on anaconda cloud from work:
+3. To access on anaconda cloud from work:
    Open cloud, open new terminal window, navigate to repository directory on cloud (if not already there)
    cd RBIF109
    git pull origin main     #this will update local repo with latest changes from GitHub
 
-5. Push back to GitHub
+4. Push back to GitHub
    git add Assignment1.ipynb
    git commit -m "updated from work"
    git push
