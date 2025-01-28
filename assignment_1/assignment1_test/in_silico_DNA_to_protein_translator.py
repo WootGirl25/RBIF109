@@ -28,7 +28,7 @@ def read_tsv_to_dict(file_path):
         for row in r:
             if row[0].startswith('#') or not row[0]:
                 continue
-            try:
+            try: #use try so it doesnt throw error
                 key = row[0] # first column "Codon"
                 value = row[2] # third column "Letter"
                 dic[key] = value
@@ -39,7 +39,7 @@ def read_tsv_to_dict(file_path):
 def find_3_frames(sequence):
     list = []
     for i in range(3):
-        list.append(sequence[i:])
+        list.append(sequence[i:]) #move up one nucleotide for each following frame
     
     return list
 
@@ -54,7 +54,7 @@ def create_frame_list(sequence):
 def find_orf(seq):
     stop_codons = ['TAA', 'TAG', 'TGA']
     orfs = []
-    start_positions = []
+    start_positions = [] # create an empty list of ATG indicies incase there are more than one start codon before encoutering a stop
 
     for i in range(0, len(seq) - 2, 3):  # -2 to ensure loop doesn't go out of bounds
         codon = seq[i:i+3]
@@ -73,7 +73,7 @@ def find_orf(seq):
 
 def translate(orf, codon_dict):
     aa_seq = []
-    for i in range(0, len(orf), 3):  
+    for i in range(0, len(orf), 3):  #each orf is a single frame, therefore traverse the sequence by x3
         codon = orf[i:i+3]
         aa_seq.append(codon_dict[codon])
     return ''.join(aa_seq)
