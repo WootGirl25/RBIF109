@@ -24,10 +24,15 @@ Once local repository is initialized on home computer (if not skip to bottom):
 5. Push back to GitHub
    git add Assignment1.ipynb
    git commit -m "updated from work"
-   git push
+   git push origin branch_name  ## REALLY IMPORTANT YOU SPECIFY WHICH BRANCH YOURE IN. OTHERWISE COULD PUSH TO MAIN, OR A BRANCH YOURE NOT INTENDING. See note below
    WootGirl25
    <paste personal access token>
-   
+
+** To check which branch you're currently in:
+    git branch --show-current
+** To change branches
+    git switch branch_name
+    
 _______________________________________________________________________________
 **Step-by-Step Guide to Push to GitHub (For each new class)**
 1. ON MAC

@@ -83,15 +83,15 @@ def translate(orf, codon_dict):
 
 if __name__ == "__main__":
     codon_dict = read_tsv_to_dict('./codon.txt')
-    with open('output.txt', 'w') as output_file:
-        for i in range(10):
-            dna_sequence = generate_random_nucleotide_seq(200)
-            frames = create_frame_list(dna_sequence)
-            output_file.write(f"Random DNA Sequence {i+1}:\n {dna_sequence}\n")
-            for j, frame in enumerate(frames):
+    with open('output.txt', 'w') as output_file: #write all outputs to file
+        for i in range(10): 
+            dna_sequence = generate_random_nucleotide_seq(200) #create sequences
+            frames = create_frame_list(dna_sequence) #find all 6 reading frames - utilized the reverse complement function
+            output_file.write(f"Random DNA Sequence {i+1}:\n {dna_sequence}\n") #sequence header
+            for j, frame in enumerate(frames): #counter
                 orfs = find_orf(frame)
                 if orfs:
-                    for orf in orfs:
+                    for orf in orfs: #may be more than one per frame
                         protein = translate(orf, codon_dict)
                         output_file.write(f"  Frame {j+1}: ORF {orf} -> Protein {protein}\n")
                 else:
