@@ -28,7 +28,7 @@ def read_tsv_to_dict(file_path):
         for row in r:
             if row[0].startswith('#') or not row[0]:
                 continue
-            try:
+            try: #use try so it doesnt throw error
                 key = row[0] # first column "Codon"
                 value = row[2] # third column "Letter"
                 dic[key] = value
@@ -39,7 +39,7 @@ def read_tsv_to_dict(file_path):
 def find_3_frames(sequence):
     list = []
     for i in range(3):
-        list.append(sequence[i:])
+        list.append(sequence[i:]) #move up one nucleotide for each following frame
     
     return list
 
@@ -54,7 +54,7 @@ def create_frame_list(sequence):
 def find_orf(seq):
     stop_codons = ['TAA', 'TAG', 'TGA']
     orfs = []
-    start_positions = []
+    start_positions = [] # create an empty list of ATG indicies incase there are more than one start codon before encoutering a stop
 
     for i in range(0, len(seq) - 2, 3):  # -2 to ensure loop doesn't go out of bounds
         codon = seq[i:i+3]
@@ -73,7 +73,7 @@ def find_orf(seq):
 
 def translate(orf, codon_dict):
     aa_seq = []
-    for i in range(0, len(orf), 3):  
+    for i in range(0, len(orf), 3):  #each orf is a single frame, therefore traverse the sequence by x3
         codon = orf[i:i+3]
         aa_seq.append(codon_dict[codon])
     return ''.join(aa_seq)
@@ -83,15 +83,15 @@ def translate(orf, codon_dict):
 
 if __name__ == "__main__":
     codon_dict = read_tsv_to_dict('./codon.txt')
-    with open('output.txt', 'w') as output_file:
-        for i in range(10):
-            dna_sequence = generate_random_nucleotide_seq(200)
-            frames = create_frame_list(dna_sequence)
-            output_file.write(f"Random DNA Sequence {i+1}:\n {dna_sequence}\n")
-            for j, frame in enumerate(frames):
+    with open('output.txt', 'w') as output_file: #write all outputs to file
+        for i in range(10): 
+            dna_sequence = generate_random_nucleotide_seq(200) #create sequences
+            frames = create_frame_list(dna_sequence) #find all 6 reading frames - utilized the reverse complement function
+            output_file.write(f"Random DNA Sequence {i+1}:\n {dna_sequence}\n") #sequence header
+            for j, frame in enumerate(frames): #counter
                 orfs = find_orf(frame)
                 if orfs:
-                    for orf in orfs:
+                    for orf in orfs: #may be more than one per frame
                         protein = translate(orf, codon_dict)
                         output_file.write(f"  Frame {j+1}: ORF {orf} -> Protein {protein}\n")
                 else:
