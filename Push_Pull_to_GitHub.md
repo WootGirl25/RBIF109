@@ -111,42 +111,45 @@ git push
 
 
 __________________________________________________
-Closing a branch
+#Adding a branch:
+1. Create the new branch on github <branch1>
+2. Fetch the New Branch on local machienes:
+   i. First make sure local repo is aware of the new branch
+   > git fetch origin
+   ii. now that youve fetched the new branch you can check it out and create a corresponding local branch
+   > git checkout -b <branch1> origin/<branch1>
+   iii. Repeat these steps on the other local machiene.
+
+__________________________________________________________
+#Closing a branch:
 Got it! Merging branches across multiple platforms can feel a bit daunting, but I'm here to guide you through it step by step.
 
 Merging Branches in GitHub
-Switch to Branch1 and Push Changes:
+Switch to <branch1> and Push Changes:
 
 Make sure you're on branch1 on your home computer, and push any final changes to GitHub:
 
-bash
-git checkout branch1
-git add .
-git commit -m "Final changes on branch1"
-git push origin branch1
+>git checkout <branch1>
+>git add .
+>git commit -m "Final changes on <branch1>"
+>git push origin <branch1>
+
 Create a Pull Request (PR):
-
 Go to your GitHub repository on the GitHub website.
-
 Click on the "Pull requests" tab.
-
 Click "New pull request."
-
 Select branch1 as the compare branch and main as the base branch.
-
 Click "Create pull request."
-
 Add a title and description if necessary and click "Create pull request" again.
-
 Merge the pull request by clicking "Merge pull request" and then "Confirm merge."
+- Once done you can delete <branch1> on gitHub
 
 Updating Local Repositories
-Update Main Branch on Home Computer:
-
+1. Update Main Branch on Home Computer:
 On your home computer, switch to the main branch and pull the latest changes:
 
-git checkout main
-git pull origin main
+>git checkout main
+>git pull origin main
 
 Update Main Branch on Work Computer:
 On your work computer, do the same as above.
@@ -157,11 +160,11 @@ Deleting a branch on GitHub doesn't automatically remove it from your local mach
 
 List All Branches:
 This will help you confirm that branch1 is still present in your local repository:
-git branch
+>git branch
 
 Delete the Local Branch:
 To delete branch1 locally, run:
-git branch -d branch1
+>git branch -d <branch1>
 
 If you get an error saying that the branch is not fully merged, and you are sure you want to delete it, you can force-delete it with:
 git branch -D branch1
