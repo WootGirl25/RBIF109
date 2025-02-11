@@ -1,0 +1,21 @@
+RBIF109 Assignment 1
+Author: Laura Wooten
+
+GOAL:
+The goal of this assignment
+
+Input files:
+No inputs
+
+Output files:
+output.txt
+
+Requirements:
+Python3 must be installed on your operating system.
+
+Execute the following script as depicted.
+python3 longest_common_subsequence.py
+
+Steps within the script:
+
+Additional files & Discussion:

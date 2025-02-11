@@ -1,0 +1,50 @@
+>Pair 1
+Sequence 1: ATATTAACTCCCGT
+Sequence 2: CTCTGCAGACTT
+Longest Coding Sequence: TTAACTT
+
+>Pair 2
+Sequence 1: TTCAAGGCTTATGGAAG
+Sequence 2: GGGTCTCC
+Longest Coding Sequence: GGTT
+
+>Pair 3
+Sequence 1: CCTCCCTAGCGGTG
+Sequence 2: TCAGTTG
+Longest Coding Sequence: TCAGTG
+
+>Pair 4
+Sequence 1: CCAGCATAG
+Sequence 2: CGCTAAGA
+Longest Coding Sequence: CGCTAG
+
+>Pair 5
+Sequence 1: CATTCAGTTATC
+Sequence 2: CTTGA
+Longest Coding Sequence: CTTGA
+
+>Pair 6
+Sequence 1: GCGGAC
+Sequence 2: CTTAC
+Longest Coding Sequence: CAC
+
+>Pair 7
+Sequence 1: ACCGTATTGC
+Sequence 2: CAATCGAAGGCT
+Longest Coding Sequence: CCGAGC
+
+>Pair 8
+Sequence 1: TGGTCATTGC
+Sequence 2: CGATCGGACCAGA
+Longest Coding Sequence: TGGCAG
+
+>Pair 9
+Sequence 1: CGTGCATGGAAT
+Sequence 2: CCCCATGA
+Longest Coding Sequence: CCATGA
+
+>Pair 10
+Sequence 1: GAAACATCAAAGA
+Sequence 2: TTAACTC
+Longest Coding Sequence: AACTC
+
