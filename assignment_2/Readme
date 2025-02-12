@@ -1,8 +1,8 @@
-RBIF109 Assignment 1
+RBIF109 Assignment 2
 Author: Laura Wooten
 
 GOAL:
-The goal of this assignment
+The goal of this assignment is to create a function that returns the longest common subsequence between two DNA sequences using dynamic programming. This script takes no inputs, and when executed will generate two DNA sequences and find the longest common subsequence, outputing the sequences and lcs to the output file.
 
 Input files:
 No inputs
@@ -17,5 +17,23 @@ Execute the following script as depicted.
 python3 longest_common_subsequence.py
 
 Steps within the script:
+1. Generate random nucleotide sequences: The script generates random DNA sequences of 5 to 20 bases in length using the generate_random_nucleotide_seq_length_5to20() function.
+
+2. The script uses finds the LCS between pairs of sequences using the find_lcs() function. It does this by:
+    * Initializing a 2D array with 0's. The array will be used to store the lengths of the LCS subsequences.
+    * Filling the 2D array - the function iterates over each nucleotide in seq1 and seq2, assesses whether the bases match, and either extends the LCS or finds the maximum of the left and above cells - ie. taking the longest LCS found so far withoug including the current base.
+    * Backtracks from the bottom right corner of the array to find the LCS.
+    * Reverses the backtracked LCS so that it is returned in the correct order.
+
+3. Writes the results to output.txt
 
 Additional files & Discussion:
+I have included the Ass2_work.ipynb file, as this is where I experimented with different sections of the script before combining them. This notebook is heavily annotated to show my thought process (though it contains more comments than necessary for a concise script, hence the reduced comments in the .py file). This should provide insight into how I approached and broke down the problem.
+
+You will note that I set my DNA sequence generator to return sequences 5-20 bases in length. This function can easily be modified to expand to a greater range, which is more fitting for common uses of functions to find the LCS (e.g., homology detection). However, for this assignment, I implemented a simple version to ensure easy visual verification of its correctness.
+
+Overall, the algorithm accurately identifies the LCS between pairs of DNA sequences, showcasing its precision and reliability. The global dynamic programming approach ensures efficient performance, even as sequence lengths vary. This demonstrates the algorithm's robustness and versatility. However, it is a fairly basic algorithm. In a real-world scenario where one wishes to compare sequences for homology, adding additional features such as gap penalties to address insertions and deletions would enhance this script, bringing it closer to operating as a true Needleman-Wunsch Algorithm [1]. This modification would allow for more accurate alignment, taking into account common biological variations.
+
+The results hold valuable biological implications, such as identifying conserved regions and understanding evolutionary relationships [1]. By accurately pinpointing the LCS, this algorithm can aid in comparative genomics studies, revealing similarities and differences between species or within populations.
+
+1. Chao, J., Tang, F., & Xu, L. (2022). Developments in algorithms for sequence alignment: A review. Biomolecules, 12(4), 546. https://doi.org/10.3390/biom12040546

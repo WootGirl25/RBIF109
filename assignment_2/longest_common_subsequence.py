@@ -52,4 +52,4 @@ if __name__ == "__main__":
             output_file.write(f'>Pair {x+1}\n')
             output_file.write(f'Sequence 1: {seq1}\n')
             output_file.write(f'Sequence 2: {seq2}\n')
-            output_file.write(f'Longest Coding Sequence: {"".join(lcs)}\n\n')
+            output_file.write(f'Longest Coding Subsequence: {"".join(lcs)}\n\n')
